@@ -1,0 +1,11 @@
+# Usin appcmd utility
+
+# To create an apppool with appcmd use:
+C:\Windows\System32\inetsrv>appcmd.exe add apppool /name:WebSite2
+
+# To create a website with appcmd.exe use"
+C:\Windows\System32\inetsrv>appcmd.exe add site /name:"www.website2.com" /bindings:http://www.website2.com:80 /physicalpath:"C:\inetpub\wwwroot\website2"
+
+# To create a bulk of websites with the script use:
+C:\Windows\System32\inetsrv>for /l %1 IN (3,1,6) do mkdir C:\inetpub\wwwroot\website%1 | C:\Windows\System32\inetsrv\appcmd.exe add site /name:www.website%1.com /id:%1 /bindings:http://www.website%1.com:80 /physicalpath:C:\inetpub\wwwroot\websit%1
+
